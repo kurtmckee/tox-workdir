@@ -1,0 +1,8 @@
+..  Select the correct category (or categories) below.
+..  Delete unused categories for simplicity.
+{% for category in config.categories %}
+{{ category }}
+{{ config.rst_header_chars[1] * (category|length) }}
+{% endfor %}
+*   Describe your change here using active verbs.
+{# Ensure a trailing newline in the generated file. #}

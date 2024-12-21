@@ -1,0 +1,115 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+# poetry
+# ------
+
+[tool.poetry]
+name = "tox-workdir"
+version = "0.1.0"
+description = "Put tox work directories in a cache directory by default"
+authors = ["Kurt McKee <contactme@kurtmckee.org>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/kurtmckee/tox-workdir"
+keywords = [
+    "tox",
+    "plugin",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: tox",
+    "Intended Audience :: Developers",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+tox = ">=4,<5"
+platformdirs = ">=4,<5"
+
+[tool.poetry.plugins.tox]
+tox_workdir = "tox_workdir"
+
+
+# coverage
+# --------
+
+[tool.coverage.run]
+relative_files = true
+parallel = true
+branch = true
+source = [
+    "tox_workdir",
+    "tests",
+]
+
+[tool.coverage.paths]
+source = [
+    "src",
+    "*/site-packages",
+]
+
+[tool.coverage.report]
+skip_covered = true
+fail_under = 100
+
+[tool.coverage.html]
+directory = "htmlcov/"
+skip_covered = false
+
+
+# isort
+# -----
+
+[tool.isort]
+profile = "black"
+
+
+# mypy
+# ----
+
+[tool.mypy]
+packages = "tox_workdir"
+strict = true
+sqlite_cache = true
+warn_unreachable = true
+enable_error_code = [
+    "ignore-without-code",
+    "redundant-expr",
+    "truthy-bool",
+]
+
+
+# pytest
+# ------
+
+[tool.pytest.ini_options]
+addopts = "--color=yes"
+filterwarnings = [
+    "error",
+]
+
+
+# scriv
+# -----
+
+[tool.scriv]
+version = "literal: pyproject.toml: tool.poetry.version"
+categories = [
+    "Python support",
+    "Added",
+    "Fixed",
+    "Removed",
+    "Changed",
+    "Deprecated",
+    "Security",
+    "Development",
+]
+entry_title_template = "{{ version }} - {{ date.strftime('%Y-%m-%d') }}"
+format = "rst"
+fragment_directory = "changelog.d"
+insert_marker = "scriv-insert-here"
+main_branches = ["main", "releases"]
+new_fragment_template = "file: fragment-template.rst.txt"

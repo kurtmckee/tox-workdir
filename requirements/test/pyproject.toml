@@ -1,0 +1,17 @@
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+coverage = {version = "*", extras = ["toml"]}
+pytest = "*"
+pytest-randomly = "*"
+
+# TODO: tag=legacy-cgi
+# Poetry currently cannot resolve the tox `test` extra
+# due to a `python<4.0` requirement imposed by legacy-cgi.
+# https://github.com/jackrosenthal/legacy-cgi/pull/8
+#
+# This is currently accommodated in `tox.ini`.
+#
+tox = {version = "*", extras = ["test"]}
