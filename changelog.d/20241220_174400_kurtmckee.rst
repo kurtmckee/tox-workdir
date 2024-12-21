@@ -1,5 +1,0 @@
-Initial release
----------------
-
-*   Support Python 3.9 and higher.
-*   Add a new ``tox`` command, ``workdir`` (``wd``) to show the actual ``workdir`` path.

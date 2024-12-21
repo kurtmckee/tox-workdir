@@ -19,3 +19,14 @@ Please see the fragment files in the `changelog.d directory`_.
 
 
 ..  scriv-insert-here
+
+.. _changelog-0.1.0:
+
+0.1.0 - 2024-12-20
+==================
+
+Initial release
+---------------
+
+*   Add a new ``tox`` command, ``workdir`` (``wd``) to show the actual ``workdir`` path.
+*   Support Python 3.9 and higher.
