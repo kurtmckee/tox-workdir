@@ -1,19 +1,14 @@
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-
-# poetry
-# ------
-
-[tool.poetry]
+[project]
 name = "tox-workdir"
 version = "0.1.0"
 description = "Put tox work directories in a cache directory by default"
-authors = ["Kurt McKee <contactme@kurtmckee.org>"]
+authors = [
+    { name = "Kurt McKee", email = "contactme@kurtmckee.org" },
+]
 license = "MIT"
 readme = "README.rst"
-repository = "https://github.com/kurtmckee/tox-workdir"
+requires-python = ">=3.9"
+repository = ""
 keywords = [
     "tox",
     "plugin",
@@ -22,15 +17,24 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: tox",
     "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "tox >=4,<5",
+    "platformdirs >=4,<5",
 ]
 
-[tool.poetry.dependencies]
-python = ">=3.9"
-tox = ">=4,<5"
-platformdirs = ">=4,<5"
+[project.urls]
+Source = "https://github.com/kurtmckee/tox-workdir"
+Changelog = "https://github.com/kurtmckee/tox-workdir/blob/main/CHANGELOG.rst"
 
-[tool.poetry.plugins.tox]
+[project.entry-points.tox]
 tox_workdir = "tox_workdir"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 
 # coverage
@@ -96,7 +100,7 @@ filterwarnings = [
 # -----
 
 [tool.scriv]
-version = "literal: pyproject.toml: tool.poetry.version"
+version = "literal: pyproject.toml: project.version"
 categories = [
     "Python support",
     "Added",
