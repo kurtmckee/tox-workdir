@@ -1,4 +1,9 @@
 ..
+    This file is part of tox-workdir.
+    Copyright 2024-2025 Kurt McKee <contactme@kurtmckee.org>
+    SPDX-License-Identifier: MIT
+
+..
     This is the tox-workdir changelog.
 
     It is managed and updated by scriv during development.
